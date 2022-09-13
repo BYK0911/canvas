@@ -7,9 +7,9 @@ const routes: Array<RouteRecordRaw> = [
     component: () => import(/* webpackChunkName: "home" */ '../views/home/index.vue')
   }
 ]
-
 const router = createRouter({
-  history: createWebHistory(process.env.BASE_URL),
+  // history: createWebHistory(process.env.BASE_URL),
+  history: createWebHistory('/canvas/dist'),
   routes
 })
 
