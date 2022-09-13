@@ -8,7 +8,10 @@ export default function (path: number[], ctx: CanvasRenderingContext2D, painterO
   for (let i = 2; i < path.length; i += 2) {
     ctx.lineTo(path[i], path[i + 1])
   }
-  ctx.closePath()
   ctx.strokeStyle = painterOption.color
   ctx.lineWidth = painterOption.size
+  ctx.lineCap = 'round'
+  ctx.lineJoin = 'round'
+  ctx.stroke()
+  ctx.closePath()
 }

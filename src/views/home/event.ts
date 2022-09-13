@@ -1,6 +1,5 @@
 import Canvas from "@/modules/canvas/"
 import Path from "@/modules/canvas/layer/path"
-import { log } from './log'
 import setting from "./setting"
 import Coord from '@/modules/coord'
 
@@ -54,17 +53,14 @@ export default function (cvs: Canvas): void {
       const angle = v.cross(_v.x, _v.y) > 0 ? ang : -ang
       const k = _v.norm() / v.norm()
       const c0 = cvs.getRelativeCoord((x0 + x1) / 2, (y0 + y1) / 2)
-      const cx = c0.x
-      const cy = c0.y
       
       cvs.rotation += (angle / Math.PI) * 180
       cvs.scale *= k
-      const c1 = cvs.getRelativeCoord((_x0 + _x1) / 2, (_y0 + _y1) / 2)
-      const _cx = c1.x
-      const _cy = c1.y
-      cvs.x += _cx - cx
-      cvs.y += _cy - cy
-      log(`scale ${k} ${ang}`)
+      c0.rotate(cvs.rotation)
+        .scale(cvs.scale, cvs.scale)
+      const c1 = new Coord((_x0 + _x1) / 2, (_y0 + _y1) / 2).move(-c0.x, -c0.y)
+      cvs.x = c1.x
+      cvs.y = c1.y
 
       x0 = _x0
       x1 = _x1

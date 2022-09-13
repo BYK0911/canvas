@@ -1,7 +1,5 @@
 <template>
-  <span>
-    <span class="iconfont icon-marquee" @click='resetViewport'></span>
-  </span>
+  <span class="iconfont icon-marquee" @click='resetViewport'></span>
 </template>
 
 <script setup lang="ts">

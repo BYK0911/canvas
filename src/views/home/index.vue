@@ -16,18 +16,18 @@
     </div>
   </transition>
 
-  <div ref='logRef' class='log' @click='expandLog=!expandLog'>
+  <!-- <div ref='logRef' class='log' @click='expandLog=!expandLog'>
     <div v-show='expandLog'>
       <p v-for='(log, i) in logs' :key='i'> {{log}} </p>
     </div>
     <p style='text-align: center;'>
       <span class='iconfont logicon' :class='expandLog ? "icon-halfscreen": "icon-fullscreen"'></span>
     </p>
-  </div>
+  </div> -->
 </template>
 
 <script lang="ts" setup>
-import { ref, onMounted, onBeforeMount, provide, markRaw, watch, nextTick } from 'vue'
+import { ref, onMounted, onBeforeMount, provide, markRaw, watch, nextTick, Component } from 'vue'
 import Canvas from '@/modules/canvas'
 import BottomMenu from './components/menus/BottomMenu.vue'
 import RightMenu from './components/menus/RightMenu.vue'
@@ -42,7 +42,7 @@ const locked = ref(false)
 const closeDrawer = (): void => { Drawer.value = null }
 const cvs = new Canvas()
 const expandLog = ref(true)
-let animateId = null
+let animateId: number | null = null
 
 const render = () => {
   cvs.drawFrame()
@@ -51,7 +51,7 @@ const render = () => {
 
 provide(
   'openDrawer',
-  (drawer: unknown): void => {
+  (drawer: Component): void => {
     Drawer.value = markRaw(drawer)
   }
 )
@@ -66,7 +66,7 @@ onMounted(() => {
 })
 
 onBeforeMount(() => {
-  window.cancelAnimationFrame(animateId)
+  if (animateId) window.cancelAnimationFrame(animateId)
 })
 
 watch([logs.value, expandLog], () => {

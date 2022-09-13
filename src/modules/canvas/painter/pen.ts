@@ -10,8 +10,8 @@ export default function (path: number[], ctx: CanvasRenderingContext2D, painterO
   }
   ctx.strokeStyle = painterOption.color
   ctx.lineWidth = painterOption.size
-  ctx.lineCap = 'butt'
-  ctx.lineJoin = 'miter'
+  ctx.lineCap = 'round'
+  ctx.lineJoin = 'round'
   ctx.stroke()
   ctx.closePath()
 }

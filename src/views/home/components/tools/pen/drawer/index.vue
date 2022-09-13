@@ -28,9 +28,7 @@ const setting = inject('setting')
 const pens = [
   { name: 'Pen', icon: 'icon-pen1' },
   { name: 'Pencil', icon: 'icon-pen' },
-  { name: 'Chalk', icon: 'icon-Pen' },
   { name: 'MarkPen', icon: 'icon-mark-pen-fill' },
-  { name: 'Brush', icon: 'icon-brush' },
   { name: 'SoftPen', icon: 'icon-Brush-' },
 ]
 </script>

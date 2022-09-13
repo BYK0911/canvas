@@ -40,12 +40,13 @@
 </template>
 
 <script setup lang="ts">
-import { watch, ref } from 'vue'
+import { watch, ref, inject } from 'vue'
 
 const props = defineProps(['color', 'colorUsed'])
 const emit = defineEmits(['update:color', 'update:colorUsed'])
 const colorValue = ref(props.color)
 const colorUsed = ref(props.colorUsed)
+const closeDrawer = inject('closeDrawer')
 
 let colors = []
 const hex = (n: number): string => {
@@ -71,6 +72,7 @@ watch(colorValue, (v: string) => {
 
   colorUsed.value.unshift(v)
   emit('update:colorUsed', colorUsed.value)
+  closeDrawer()
 })
 </script>
 

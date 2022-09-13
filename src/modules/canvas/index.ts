@@ -1,7 +1,6 @@
 import Layer from "./layer"
 import { initEvent, disposeEvent } from './event'
 import Coord from "../coord";
-import { log } from "@/views/home/log";
 
 interface CB {
   (e: Event): void

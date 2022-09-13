@@ -9,7 +9,7 @@ const routes: Array<RouteRecordRaw> = [
 ]
 
 const router = createRouter({
-  history: createWebHistory('/canvas/dist'),
+  history: createWebHistory(process.env.baseURL),
   routes
 })
 
