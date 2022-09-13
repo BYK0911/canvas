@@ -1,0 +1,52 @@
+html, body, #app {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  font-size: 14px;
+}
+
+.flex, .flex-v {
+  display: flex;
+}
+.flex-v {
+  flex-direction: column;
+}
+.flex-item {
+  flex-shrink: 0;
+  overflow: auto;
+}
+.flex-main {
+  flex: auto;
+  overflow: auto;
+}
+
+.menu .el-icon,
+.menu .iconfont {
+  padding: 6px;
+  font-size: 20px;
+  opacity: .5;
+}
+.el-dropdown-menu__item .el-icon,
+.el-dropdown-menu__item .iconfont {
+  margin-right: 10px;
+}
+.divider-v {
+  margin: 10px 0;
+}
+.divider-h {
+  margin: 0 10px;
+}
+
+.panel + .panel {
+  margin-top: 20px;
+}
+.panel-header {
+  padding: 4px 10px;
+  font-weight: bold;
+  color: #666;
+}
+.panel-body {
+  padding: 10px;
+}
