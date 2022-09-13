@@ -1,5 +1,7 @@
 import Layer from "./layer"
 import { initEvent, disposeEvent } from './event'
+import Coord from "../coord";
+import { log } from "@/views/home/log";
 
 interface CB {
   (e: Event): void
@@ -9,6 +11,7 @@ export default class Canvas {
   x = 0;
   y = 0;
   scale = 1;
+  rotation = 0;
   mode = 'default'
   backgroundColor = '#f0f0f0'
   width = 400
@@ -67,6 +70,7 @@ export default class Canvas {
       layers,
       ctx,
       backgroundColor,
+      rotation,
     } = this
 
     ctx.clearRect(0, 0, width, height)
@@ -75,12 +79,20 @@ export default class Canvas {
     ctx.save()
     ctx.translate(x, y)
     ctx.scale(scale, scale)
+    ctx.rotate(rotation / 180 * Math.PI)
     layers.forEach(layer => {
       ctx.save()
       layer.draw(ctx)
       ctx.restore()
     })
     ctx.restore()
+  }
+
+  getRelativeCoord (x: number, y: number): Coord {
+    return new Coord(x, y)
+      .translate(-this.x, -this.y)
+      .scale(1 / this.scale, 1 / this.scale)
+      .rotate(-this.rotation)
   }
 
   on (eventType: string, eventHandler: CB): void {

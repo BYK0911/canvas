@@ -6,7 +6,6 @@
 
 <script setup lang="ts">
 import { inject } from 'vue'
-console.log('// inject cvs')
 
 const cvs = inject('cvs')
 const setting = inject('setting')

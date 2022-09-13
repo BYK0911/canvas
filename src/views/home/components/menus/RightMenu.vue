@@ -2,6 +2,7 @@
   <div class="menu-right menu">
     <undo/>
     <redo/>
+    <reset-viewport/>
     <span class='divider-v'></span>
     <operation/>
   </div>
@@ -11,6 +12,7 @@
 import Undo from '../tools/undo/index.vue'
 import Redo from '../tools/redo/index.vue'
 import Operation from '../tools/operation/index.vue'
+import ResetViewport from '../tools/resetViewport/index.vue'
 </script>
 
 <style scoped lang='scss'>

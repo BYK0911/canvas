@@ -41,7 +41,7 @@ const Drawer = ref()
 const locked = ref(false)
 const closeDrawer = (): void => { Drawer.value = null }
 const cvs = new Canvas()
-const expandLog = ref(false)
+const expandLog = ref(true)
 let animateId = null
 
 const render = () => {
