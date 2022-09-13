@@ -16,7 +16,7 @@
   <div class="panel">
     <div class="panel-header"> 粗细 </div>
     <div class="panel-body">
-      <el-slider v-model="setting.painterSize" />
+      <el-slider v-model="setting.painterSize" :min='1' :max='50' />
     </div>
   </div>
 </template>

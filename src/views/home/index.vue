@@ -27,7 +27,7 @@
 </template>
 
 <script lang="ts" setup>
-import { ref, onMounted, onBeforeMount, provide, markRaw, watch, nextTick, Component } from 'vue'
+import { ref, onMounted, onBeforeMount, provide, markRaw, watch, nextTick, VueElement } from 'vue'
 import Canvas from '@/modules/canvas'
 import BottomMenu from './components/menus/BottomMenu.vue'
 import RightMenu from './components/menus/RightMenu.vue'
@@ -51,7 +51,7 @@ const render = () => {
 
 provide(
   'openDrawer',
-  (drawer: Component): void => {
+  (drawer: VueElement): void => {
     Drawer.value = markRaw(drawer)
   }
 )
