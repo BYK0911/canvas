@@ -1,11 +1,6 @@
 import Layer from "."
 import draw from "../painter";
-
-interface IPainter {
-  type: string;
-  size: number;
-  color: string;
-}
+import { IPainter } from "../painter/painter";
 
 export default class Path extends Layer {
   type = 'Path'

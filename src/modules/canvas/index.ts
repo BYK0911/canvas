@@ -75,6 +75,7 @@ export default class Canvas {
     ctx.clearRect(0, 0, width, height)
     ctx.fillStyle = backgroundColor
     ctx.fillRect(0, 0, width, height)
+
     ctx.save()
     ctx.translate(x, y)
     ctx.scale(scale, scale)

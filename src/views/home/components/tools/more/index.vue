@@ -1,16 +1,24 @@
 <template>
-  <el-dropdown style="vertical-align: middle;">
-    <span class="iconfont icon-more"></span>
+  <el-dropdown placement="left">
+    <span class="iconfont icon-menu"></span>
     <template #dropdown>
       <el-dropdown-menu>
-        <el-dropdown-item><span class="iconfont icon-marquee"></span> 矩形选择</el-dropdown-item>
-        <el-dropdown-item><span class="iconfont icon-polygon"></span> 自由选择</el-dropdown-item>
-        <el-dropdown-item><span class="iconfont icon-hand-drag"></span> 拖拽移动</el-dropdown-item>
+        <el-dropdown-item><background/></el-dropdown-item>
+        <el-dropdown-item><reset-viewport/></el-dropdown-item>
+        <el-dropdown-item><export/></el-dropdown-item>
+        <el-dropdown-item><clear/></el-dropdown-item>
       </el-dropdown-menu>
     </template>
   </el-dropdown>
 </template>
 
 <script setup lang="ts">
-
+import Clear from '../clear/index.vue'
+import Export from '../export/index.vue'
+import Background from '../background/index.vue';
+import ResetViewport from '../resetViewport/index.vue';
 </script>
+
+<style scoped lang='scss'>
+
+</style>

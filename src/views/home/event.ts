@@ -2,6 +2,7 @@ import Canvas from "@/modules/canvas/"
 import Path from "@/modules/canvas/layer/path"
 import setting from "./setting"
 import Coord from '@/modules/coord'
+import { IPainter } from "@/modules/canvas/painter/painter";
 
 let path: Path | null = null;
 let x0: number, x1: number, y0: number, y1: number;
@@ -13,11 +14,15 @@ export default function (cvs: Canvas): void {
     moved = false
     if (setting.mode === 'default') {
       if (ev.touches.length === 1) {
-        path = new Path({
+        const painter: IPainter = {
           type: setting.painter,
           size: setting.painterSize,
           color: setting.color,
-        })
+        }
+        if (setting.painter === 'SoftPen') {
+          painter.scale = cvs.scale
+        }
+        path = new Path(painter)
         const c = cvs.getRelativeCoord(ev.touches[0].pageX, ev.touches[0].pageY)
         path.data.push(c.x, c.y)
       } else if (ev.touches.length > 1) {

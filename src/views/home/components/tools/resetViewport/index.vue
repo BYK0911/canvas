@@ -1,5 +1,7 @@
 <template>
-  <span class="iconfont icon-marquee" @click='resetViewport'></span>
+  <span @click='resetViewport'>
+    <span class="iconfont icon-marquee"></span> 重置视口
+  </span>
 </template>
 
 <script setup lang="ts">

@@ -2,17 +2,14 @@
   <div class="menu-right menu">
     <undo/>
     <redo/>
-    <reset-viewport/>
-    <span class='divider-v'></span>
-    <operation/>
+    <more-options/>
   </div>
 </template>
 
 <script setup lang="ts">
 import Undo from '../tools/undo/index.vue'
 import Redo from '../tools/redo/index.vue'
-import Operation from '../tools/operation/index.vue'
-import ResetViewport from '../tools/resetViewport/index.vue'
+import MoreOptions from '../tools/more/index.vue'
 </script>
 
 <style scoped lang='scss'>

@@ -1,6 +1,6 @@
 <template>
   <span style='color: red;' @click='clear'>
-    <span class="iconfont icon-delete"></span> 清屏
+    <span class="iconfont icon-delete"></span> 清除屏幕
   </span>
 </template>
 

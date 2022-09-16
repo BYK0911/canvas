@@ -1,6 +1,6 @@
 <template>
-  <span @click='openDrawer(Drawer)'>
-    <span class="iconfont icon-background-f"></span> 背景颜色
+  <span class="iconfont" @click="openDrawer(Drawer)">
+    <span class="sizeicon"></span>
   </span>
 </template>
 
@@ -12,5 +12,11 @@ const openDrawer = inject('openDrawer')
 </script>
 
 <style scoped lang='scss'>
-
+.sizeicon {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border-radius: 10px;
+  background-color: #666;
+}
 </style>

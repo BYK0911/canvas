@@ -63,14 +63,15 @@ for (let r = 0; r <= 255; r += n) {
 }
 
 watch(colorValue, (v: string) => {
-  emit('update:color', v)
-
-  if (colorUsed.value.includes(v)) return
-  if (colorUsed.value.length === 10) {
-    colorUsed.value = colorUsed.value.slice(0, 9)
+  if (colorUsed.value.includes(v)) {
+    const i = colorUsed.value.indexOf(v)
+    colorUsed.value.splice(i, 1)
+  } else if (colorUsed.value.length === 10) {
+    colorUsed.value.pop()
   }
-
+  
   colorUsed.value.unshift(v)
+  emit('update:color', v)
   emit('update:colorUsed', colorUsed.value)
   closeDrawer()
 })

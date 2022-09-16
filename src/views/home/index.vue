@@ -1,10 +1,8 @@
 <template>
   <div ref="cvsWrap" class="cvs-wrap"></div>
 
-  <bottom-menu v-show="!locked"/>
-  <right-menu v-show="!locked"/>
-
-  <span class="iconfont lockicon" :class="locked ? 'icon-lock' : 'icon-unlock-f'" @click="locked = !locked"></span>
+  <bottom-menu />
+  <right-menu />
 
   <transition name="drawer">
     <div v-if="Drawer">
@@ -38,7 +36,6 @@ import setting from './setting'
 const cvsWrap = ref()
 const logRef = ref()
 const Drawer = ref()
-const locked = ref(false)
 const closeDrawer = (): void => { Drawer.value = null }
 const cvs = new Canvas()
 const expandLog = ref(true)
