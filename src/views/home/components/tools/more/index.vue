@@ -6,7 +6,7 @@
         <el-dropdown-item><background/></el-dropdown-item>
         <el-dropdown-item><reset-viewport/></el-dropdown-item>
         <el-dropdown-item><export/></el-dropdown-item>
-        <el-dropdown-item><clear/></el-dropdown-item>
+        <el-dropdown-item divided><clear/></el-dropdown-item>
       </el-dropdown-menu>
     </template>
   </el-dropdown>

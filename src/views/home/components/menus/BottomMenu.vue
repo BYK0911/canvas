@@ -16,7 +16,7 @@ import Color from '../tools/color/index.vue'
 .menu-bottom  {
   display: flex;
   position: fixed;
-  bottom: 10px;
+  bottom: 0;
   left: 50%;
   transform: translate(-50%, 0);
 }

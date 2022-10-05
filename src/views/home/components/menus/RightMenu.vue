@@ -19,7 +19,7 @@ import MoreOptions from '../tools/more/index.vue'
   flex-direction: column;
   top: 0;
   bottom: 0;
-  right: 10px;
+  right: 0;
   justify-content: center;
 }
 </style>

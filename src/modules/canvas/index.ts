@@ -13,7 +13,7 @@ export default class Canvas {
   scale = 1;
   rotation = 0;
   mode = 'default'
-  backgroundColor = '#f0f0f0'
+  backgroundColor = 'rgba(255, 255, 255, 0)'
   width = 400
   height = 300
   layers: Layer[] = []

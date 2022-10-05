@@ -1,8 +1,8 @@
 <template>
   <div ref="cvsWrap" class="cvs-wrap"></div>
 
-  <bottom-menu />
-  <right-menu />
+  <bottom-menu @gesturestart.prevent=''/>
+  <right-menu @gesturestart.prevent=''/>
 
   <transition name="drawer">
     <div v-if="Drawer">

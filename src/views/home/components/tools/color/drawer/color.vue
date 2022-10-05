@@ -34,7 +34,7 @@
   <div class="panel">
     <div class="panel-header"> 全部颜色 </div>
     <div class="panel-body">
-      <el-color-picker v-model="colorValue" />
+      <el-color-picker v-model="colorValue" show-alpha />
     </div>
   </div>
 </template>
