@@ -19,10 +19,6 @@ export default class Canvas {
   layers: Layer[] = []
   dom: HTMLCanvasElement
   ctx: CanvasRenderingContext2D
-  offScreenCanvas: {
-    canvas: HTMLCanvasElement,
-    ctx: CanvasRenderingContext2D
-  } | null = null
 
   private handlers: Record<string, CB[]> = {}
 
@@ -51,8 +47,7 @@ export default class Canvas {
     dom.appendChild(this.dom)
     const w = dom.offsetWidth
     const h = dom.offsetHeight
-    
-    this.offScreenCanvas = cvs(w, h)
+
     this.resize(w, h)
   }
 
@@ -81,22 +76,16 @@ export default class Canvas {
     ctx.clearRect(0, 0, width, height)
     ctx.fillStyle = backgroundColor
     ctx.fillRect(0, 0, width, height)
-
-    if (this.offScreenCanvas) {
-      const _ctx = this.offScreenCanvas.ctx
-      _ctx.clearRect(0, 0, width, height)
-      _ctx.save()
-      _ctx.translate(x, y)
-      _ctx.scale(scale, scale)
-      _ctx.rotate(rotation / 180 * Math.PI)
-      layers.forEach(layer => {
-        _ctx.save()
-        layer.draw(_ctx)
-        _ctx.restore()
-      })
-      _ctx.restore()
-      ctx.drawImage(this.offScreenCanvas.canvas, 0, 0, width, height)
-    }
+    ctx.save()
+    ctx.translate(x, y)
+    ctx.scale(scale, scale)
+    ctx.rotate(rotation)
+    layers.forEach(layer => {
+      ctx.save()
+      layer.draw(ctx)
+      ctx.restore()
+    })
+    ctx.restore()
   }
 
   getRelativeCoord (x: number, y: number): Coord {

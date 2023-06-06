@@ -34,8 +34,7 @@ export default class Coord {
     return this.translate(dx, dy);
   }
 
-  rotate(angle: number): Coord {
-    const a = (angle / 180) * Math.PI;
+  rotate(a: number): Coord {
     const c = Math.cos(a);
     const s = Math.sin(a);
 

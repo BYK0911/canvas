@@ -30,7 +30,7 @@ import Canvas from '@/modules/canvas'
 import BottomMenu from './components/menus/BottomMenu.vue'
 import RightMenu from './components/menus/RightMenu.vue'
 import { logs } from './log'
-import initEvent from './event'
+import initEvent from './event/index'
 import setting from './setting'
 
 const cvsWrap = ref()

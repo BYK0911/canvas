@@ -1,6 +1,7 @@
 <template>
   <div class="menu-bottom menu">
     <pen/>
+    <span class="tool-divider"></span>
     <color/>
     <size/>
   </div>
@@ -25,5 +26,13 @@ import Color from '../tools/color/index.vue'
 .menu-bottom .el-icon,
 .menu-bottom .iconfont {
   margin: 0 5px;
+}
+.tool-divider {
+  display: inline-block;
+  align-self: center;
+  width: 1px;
+  height: 20px;
+  background-color: #ddd;
+  margin: 0 10px;
 }
 </style>
