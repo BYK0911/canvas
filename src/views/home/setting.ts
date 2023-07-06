@@ -16,7 +16,7 @@ const setting = reactive<{
   backgroundColor: '#f0f0f0',
   color: '#000',
   painter: 'Pen',
-  painterSize: 10,
+  painterSize: 1,
   his: [],
   index: -1,
   colorUsed: ['#000000', '#ff0000', '#ffffff'],

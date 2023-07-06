@@ -26,7 +26,10 @@ html, body, #app {
 .menu .iconfont {
   padding: 6px;
   font-size: 20px;
-  opacity: .5;
+  color: #fff;
+}
+.menu .iconfont.is-active {
+  color: #5af;
 }
 .el-dropdown-menu__item .el-icon,
 .el-dropdown-menu__item .iconfont {

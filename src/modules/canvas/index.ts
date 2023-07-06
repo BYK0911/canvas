@@ -1,7 +1,6 @@
 import Layer from "./layer"
 import { initEvent, disposeEvent } from './event'
 import Coord from "../coord";
-import cvs from './utils/cvs'
 
 interface CB {
   (e: Event): void
@@ -47,6 +46,7 @@ export default class Canvas {
     dom.appendChild(this.dom)
     const w = dom.offsetWidth
     const h = dom.offsetHeight
+    console.log(w, h)
 
     this.resize(w, h)
   }

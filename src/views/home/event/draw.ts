@@ -4,6 +4,8 @@ import setting from "../setting"
 import { IPainter } from "@/modules/canvas/painter/painter";
 
 let path: Path | null = null;
+let moved = false;
+const offsetY = 45;
 
 export default function (cvs: Canvas): void {
   cvs.on('touchstart', e => {
@@ -15,12 +17,9 @@ export default function (cvs: Canvas): void {
           size: setting.painterSize,
           color: setting.color,
         }
-        const c = cvs.getRelativeCoord(ev.touches[0].pageX, ev.touches[0].pageY)
+        const c = cvs.getRelativeCoord(ev.touches[0].pageX, ev.touches[0].pageY - offsetY)
         path = new Path(painter)
         path.data.push(c.x, c.y)
-        cvs.layers.push(path)
-        setting.his = [...cvs.layers]
-        setting.index++
       }
     }
   })
@@ -29,13 +28,20 @@ export default function (cvs: Canvas): void {
     const ev = e as TouchEvent
     if (ev.touches.length === 1) {
       if (path) {
-        const c = cvs.getRelativeCoord(ev.touches[0].pageX, ev.touches[0].pageY)
+        const c = cvs.getRelativeCoord(ev.touches[0].pageX, ev.touches[0].pageY - offsetY)
         path.data.push(c.x, c.y)
+        if (!moved) {
+          moved = true;
+          cvs.layers.push(path)
+          setting.his = [...cvs.layers]
+          setting.index++
+        }
       }
     }
   })
 
   cvs.on('touchend', () => {
+    moved = false;
     if (path) {
       path = null
     }

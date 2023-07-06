@@ -1,5 +1,5 @@
 <template>
-  <el-dropdown placement="left">
+  <el-dropdown placement="top">
     <span class="iconfont icon-menu"></span>
     <template #dropdown>
       <el-dropdown-menu>

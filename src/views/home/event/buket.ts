@@ -6,15 +6,16 @@ import Rasterized from '@/modules/canvas/layer/Rasterized'
 let moved = false
 let x: number, y: number
 let flag = false
+const offsetY = 45;
 
 export default function (cvs: Canvas): void {
   cvs.on('touchstart', e => {
     const ev = e as TouchEvent
-    if (ev.touches.length === 2) {
+    if (ev.touches.length === 1) {
       moved = false
       flag = true
       x = Math.floor(ev.touches[0].pageX)
-      y = Math.floor(ev.touches[0].pageY)
+      y = Math.floor(ev.touches[0].pageY - offsetY)
     }
   })
 
@@ -25,7 +26,7 @@ export default function (cvs: Canvas): void {
   cvs.on('touchend', () => {
     if (!moved && flag) {
       const imageData = cvs.ctx.getImageData(0, 0, cvs.width, cvs.height)
-      const res = magicWand(imageData, x, y)
+      const res = magicWand(imageData, x, y, 50)
       let x0 = res[0][0]
       let x1 = x0
       let y0 = res[0][1]

@@ -1,4 +1,4 @@
-export default function magicWand (imageData: ImageData, px: number, py: number, threshold = 80) {
+export default function magicWand (imageData: ImageData, px: number, py: number, threshold = 80): number[][] {
   const distance = (p1: number[], p2: number[], threshold: number): boolean => {
     let sum = 0;
     for (let i = 0; i < 4; i++) {

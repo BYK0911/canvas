@@ -6,7 +6,7 @@
     <span class="tool-divider" v-if="p.name === 'divider'"></span>
     <span
       v-else
-      class="iconfont penicon"
+      class="iconfont"
       :class='p.name === setting.painter ? "is-active " + p.icon : p.icon'
       @click="setPainter(p.name)"
     ></span>
@@ -30,12 +30,6 @@ const setPainter = (painter: string) => {
 </script>
 
 <style scoped lang='scss'>
-.penicon {
-  color: #000;
-}
-.iconfont.penicon.is-active {
-  color: #5af;
-}
 .tool-divider {
   display: inline-block;
   align-self: center;

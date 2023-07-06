@@ -1,8 +1,8 @@
 <template>
-  <div ref="cvsWrap" class="cvs-wrap"></div>
-
-  <bottom-menu @gesturestart.prevent=''/>
-  <right-menu @gesturestart.prevent=''/>
+  <div class="page-wrap flex-v">
+    <menus class="flex-item" @gesturestart.prevent=''/>
+    <div ref="cvsWrap" class="flex-main"></div>
+  </div>
 
   <transition name="drawer">
     <div v-if="Drawer">
@@ -13,22 +13,12 @@
       </div>
     </div>
   </transition>
-
-  <!-- <div ref='logRef' class='log' @click='expandLog=!expandLog'>
-    <div v-show='expandLog'>
-      <p v-for='(log, i) in logs' :key='i'> {{log}} </p>
-    </div>
-    <p style='text-align: center;'>
-      <span class='iconfont logicon' :class='expandLog ? "icon-halfscreen": "icon-fullscreen"'></span>
-    </p>
-  </div> -->
 </template>
 
 <script lang="ts" setup>
 import { ref, onMounted, onBeforeMount, provide, markRaw, watch, nextTick, VueElement } from 'vue'
 import Canvas from '@/modules/canvas'
-import BottomMenu from './components/menus/BottomMenu.vue'
-import RightMenu from './components/menus/RightMenu.vue'
+import Menus from './components/menus/index.vue'
 import { logs } from './log'
 import initEvent from './event/index'
 import setting from './setting'
@@ -74,7 +64,7 @@ watch([logs.value, expandLog], () => {
 </script>
 
 <style scoped lang='scss'>
-.cvs-wrap {
+.page-wrap {
   width: 100%;
   height: 100%;
 }
