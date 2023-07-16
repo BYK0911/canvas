@@ -5,8 +5,7 @@
 </template>
 
 <script setup lang="ts">
-import { inject } from 'vue'
-const cvs = inject('cvs')
+import { cvs } from '../../../index'
 const resetViewport = (): void => {
   cvs.x = 0
   cvs.y = 0

@@ -1,9 +1,8 @@
 <template>
   <div class="menu">
     <pen/>
-    <span class="tool-divider"></span>
-    <color/>
     <size/>
+    <color/>
     <undo/>
     <redo/>
     <more-options/>
@@ -11,12 +10,12 @@
 </template>
 
 <script setup lang="ts">
-import Pen from '../tools/pen/index.vue'
-import Size from '../tools/size/index.vue'
-import Color from '../tools/color/index.vue'
-import Undo from '../tools/undo/index.vue'
-import Redo from '../tools/redo/index.vue'
-import MoreOptions from '../tools/more/index.vue'
+import Pen from './pen/index.vue'
+import Size from './size/index.vue'
+import Color from './color/index.vue'
+import Undo from './undo/index.vue'
+import Redo from './redo/index.vue'
+import MoreOptions from './more/index.vue'
 </script>
 
 <style scoped lang='scss'>

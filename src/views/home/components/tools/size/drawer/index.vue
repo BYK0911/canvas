@@ -3,7 +3,7 @@
     <div class="panel-header"> 粗细 </div>
     <div class="panel-body">
       <div class="size-wrap flex">
-        <span class="size" v-for="s in sizes" :key="s" @click="setting.painterSize=s">
+        <span class="size" v-for="s in sizes" :key="s" @click="setSize(s)">
           <span
             class="size-inner"
             :style="{
@@ -15,16 +15,25 @@
       </div>
     </div>
     <div class="panel-body">
-      <el-slider v-model="setting.painterSize" :min='1' :max='50' />
+      <el-slider v-model="size" @change="setSize" :min='1' :max='50' />
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { inject } from 'vue'
+import { ref } from 'vue'
+import { setting } from '../../../..'
 
 const sizes = [1, 5, 10, 15, 20, 25]
-const setting = inject('setting')
+const size = ref(setting.mode === 'pen' ? setting.pen.size : setting.eraser.size)
+const setSize = (v: number) => {
+  size.value = v
+  if (setting.mode === 'pen') {
+    setting.pen.size = v
+  } else {
+    setting.eraser.size = v
+  }
+}
 </script>
 
 <style scoped lang="scss">

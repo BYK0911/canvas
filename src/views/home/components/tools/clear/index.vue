@@ -5,14 +5,11 @@
 </template>
 
 <script setup lang="ts">
-import { inject } from 'vue'
-
-const cvs = inject('cvs')
-const setting = inject('setting')
+import { memo, cvs } from '../../../index'
 const clear = () => {
   cvs.layers = []
-  setting.his = []
-  setting.index = -1
+  memo.reset()
+  cvs.refreshImage()
 }
 </script>
 

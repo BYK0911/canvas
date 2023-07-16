@@ -1,4 +1,4 @@
-import Canvas from "@/modules/canvas";
+import { Canvas } from "@/modules/canvas";
 import panzoom from "./panzoom";
 import draw from "./draw";
 import buket from "./buket";

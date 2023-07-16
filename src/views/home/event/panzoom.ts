@@ -1,5 +1,5 @@
-import Canvas from "@/modules/canvas/"
-import setting from "../setting"
+import { Canvas } from "@/modules/canvas/"
+import { setting } from ".."
 import Coord from '@/modules/coord'
 
 let x0: number, x1: number, y0: number, y1: number;
@@ -7,13 +7,11 @@ let x0: number, x1: number, y0: number, y1: number;
 export default function (cvs: Canvas): void {
   cvs.on('touchstart', e => {
     const ev = e as TouchEvent
-    if (setting.mode === 'default') {
-      if (ev.touches.length === 2) {
-        x0 = ev.touches[0].pageX
-        y0 = ev.touches[0].pageY
-        x1 = ev.touches[1].pageX
-        y1 = ev.touches[1].pageY
-      }
+    if (ev.touches.length === 2) {
+      x0 = ev.touches[0].pageX
+      y0 = ev.touches[0].pageY
+      x1 = ev.touches[1].pageX
+      y1 = ev.touches[1].pageY
     }
   })
 
@@ -33,6 +31,7 @@ export default function (cvs: Canvas): void {
       
       cvs.rotation += angle
       cvs.scale *= k
+      // cvs.scale = Math.min(5, Math.max(0.1, cvs.scale * k))
       c0.rotate(cvs.rotation)
         .scale(cvs.scale, cvs.scale)
       const c1 = new Coord((_x0 + _x1) / 2, (_y0 + _y1) / 2).move(-c0.x, -c0.y)

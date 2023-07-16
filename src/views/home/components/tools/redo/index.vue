@@ -3,15 +3,8 @@
 </template>
 
 <script setup lang="ts">
-import { inject } from 'vue'
-
-const cvs = inject('cvs')
-const setting = inject('setting')
-const redo = () => {
-  if (setting.index === setting.his.length - 1) return
-  setting.index++
-  cvs.layers = setting.his.slice(0, setting.index + 1)
-}
+import { memo } from '../../..'
+const redo = () => memo.redo()
 </script>
 
 <style scoped lang='scss'>

@@ -1,6 +1,6 @@
 <template>
   <div class="page-wrap flex-v">
-    <menus class="flex-item" @gesturestart.prevent=''/>
+    <tools class="flex-item" @gesturestart.prevent=''/>
     <div ref="cvsWrap" class="flex-main"></div>
   </div>
 
@@ -16,19 +16,14 @@
 </template>
 
 <script lang="ts" setup>
-import { ref, onMounted, onBeforeMount, provide, markRaw, watch, nextTick, VueElement } from 'vue'
-import Canvas from '@/modules/canvas'
-import Menus from './components/menus/index.vue'
-import { logs } from './log'
+import { ref, onMounted, onBeforeMount, provide, markRaw, VueElement } from 'vue'
+import Tools from './components/tools/index.vue'
 import initEvent from './event/index'
-import setting from './setting'
+import { cvs, memo, setting } from './index'
 
 const cvsWrap = ref()
-const logRef = ref()
 const Drawer = ref()
 const closeDrawer = (): void => { Drawer.value = null }
-const cvs = new Canvas()
-const expandLog = ref(true)
 let animateId: number | null = null
 
 const render = () => {
@@ -36,15 +31,11 @@ const render = () => {
   animateId = window.requestAnimationFrame(render)
 }
 
-provide(
-  'openDrawer',
-  (drawer: VueElement): void => {
-    Drawer.value = markRaw(drawer)
-  }
-)
+provide('openDrawer', (drawer: VueElement) => Drawer.value = markRaw(drawer))
 provide('closeDrawer', closeDrawer)
 provide('cvs', cvs)
 provide('setting', setting)
+provide('memo', memo)
 
 onMounted(() => {
   cvs.mount(cvsWrap.value)
@@ -54,12 +45,6 @@ onMounted(() => {
 
 onBeforeMount(() => {
   if (animateId) window.cancelAnimationFrame(animateId)
-})
-
-watch([logs.value, expandLog], () => {
-  nextTick(() => {
-    logRef.value.scrollTop = 9999999
-  });
 })
 </script>
 
@@ -139,4 +124,4 @@ watch([logs.value, expandLog], () => {
 .drawer-leave-to .drawer-wrap {
   max-height: 80vh;
 }
-</style>
+</style>.

@@ -1,7 +1,5 @@
-import Canvas from "@/modules/canvas/"
-import Path from "@/modules/canvas/layer/path"
-import setting from "../setting"
-import { IPainter } from "@/modules/canvas/painter/painter";
+import { Canvas, Path } from "@/modules/canvas/"
+import { memo, setting } from ".."
 
 let path: Path | null = null;
 let moved = false;
@@ -10,17 +8,16 @@ const offsetY = 45;
 export default function (cvs: Canvas): void {
   cvs.on('touchstart', e => {
     const ev = e as TouchEvent
-    if (setting.mode === 'default') {
-      if (ev.touches.length === 1) {
-        const painter: IPainter = {
-          type: setting.painter,
-          size: setting.painterSize,
-          color: setting.color,
-        }
-        const c = cvs.getRelativeCoord(ev.touches[0].pageX, ev.touches[0].pageY - offsetY)
-        path = new Path(painter)
-        path.data.push(c.x, c.y)
-      }
+    if (ev.touches.length === 1) {
+      const painter: {
+        type: 'pen' | 'eraser',
+        size: number,
+        force?: number,
+        color?: string
+      } = setting.mode === 'pen' ? { type: 'pen', ...setting.pen } : { type: 'eraser', ...setting.eraser }
+      const c = cvs.getRelativeCoord(ev.touches[0].pageX, ev.touches[0].pageY - offsetY)
+      path = new Path(painter)
+      path.data.push(c.x, c.y)
     }
   })
 
@@ -31,19 +28,17 @@ export default function (cvs: Canvas): void {
         const c = cvs.getRelativeCoord(ev.touches[0].pageX, ev.touches[0].pageY - offsetY)
         path.data.push(c.x, c.y)
         if (!moved) {
-          moved = true;
-          cvs.layers.push(path)
-          setting.his = [...cvs.layers]
-          setting.index++
+          cvs.activePath = path
+          moved = true
         }
       }
     }
   })
 
   cvs.on('touchend', () => {
+    if (moved) memo.add(path as Path)
     moved = false;
-    if (path) {
-      path = null
-    }
+    cvs.activePath = null
+    path = null
   })
 }
