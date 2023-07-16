@@ -1,6 +1,6 @@
 <template>
   <span @click='resetViewport'>
-    <span class="iconfont icon-marquee"></span> 重置视口
+    <span class="iconfont icon-marquee"></span>重置视口
   </span>
 </template>
 

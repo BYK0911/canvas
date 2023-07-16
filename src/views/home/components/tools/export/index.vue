@@ -1,6 +1,6 @@
 <template>
   <span @click="openDrawer(Drawer)">
-    <span class="iconfont icon-download"></span> 导出图片
+    <span class="iconfont icon-download"></span>导出图片
   </span>
 </template>
 
