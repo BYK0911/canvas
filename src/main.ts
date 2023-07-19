@@ -6,6 +6,7 @@ import ElementPlus from 'element-plus'
 import 'element-plus/dist/index.css'
 import './style/index.scss'
 import './assets/iconfont/iconfont.css'
+import './assets/icon/iconfont.css'
 
 createApp(App)
   .use(store)

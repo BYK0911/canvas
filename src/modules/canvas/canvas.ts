@@ -142,6 +142,7 @@ export default class Canvas {
     ctx.translate(x, y)
     ctx.scale(scale, scale)
     ctx.rotate(rotation)
+    this.emit('beforeRender', ctx)
     this.layers.forEach(layer => {
       ctx.save()
       layer.draw(ctx)

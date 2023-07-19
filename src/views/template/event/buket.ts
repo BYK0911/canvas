@@ -1,8 +1,9 @@
 import { Canvas } from "@/modules/canvas/"
-import { memo, setting } from ".."
+import { memo, setting } from "../../template"
 import magicWand from "@/modules/canvas/utils/magicWand"
 import Rasterized from '@/modules/canvas/layer/Rasterized'
 
+console.log(memo, setting)
 
 let x: number, y: number
 const offsetY = 45;

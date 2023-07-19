@@ -10,12 +10,10 @@
 </template>
 
 <script setup lang="ts">
-import Pen from './pen/index.vue'
-import Size from './size/index.vue'
-import Color from './color/index.vue'
-import Undo from './undo/index.vue'
-import Redo from './redo/index.vue'
-import MoreOptions from './more/index.vue'
+import Color from '@/views/canvas/components/tools/color/index.vue'
+import Undo from '@/views/canvas/components/tools/undo/index.vue'
+import Redo from '@/views/canvas/components/tools/redo/index.vue'
+import MoreOptions from '@/views/canvas/components/tools/more/index.vue'
 </script>
 
 <style scoped lang='scss'>

@@ -1,5 +1,4 @@
-import { Canvas } from "@/modules/canvas/"
-import { setting } from ".."
+import { Canvas } from "@/modules/canvas"
 import Coord from '@/modules/coord'
 
 let x0: number, x1: number, y0: number, y1: number;

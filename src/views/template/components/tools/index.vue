@@ -1,0 +1,52 @@
+<template>
+  <div class="menu">
+    <component v-for="(c, i) in tools" :is="cmpts[c as string]" :key="i"></component>
+  </div>
+</template>
+
+<script setup lang="ts">
+import Pen from './pen/index.vue'
+import Size from './size/index.vue'
+import Color from './color/index.vue'
+import Undo from './undo/index.vue'
+import Redo from './redo/index.vue'
+import MoreOptions from './more/index.vue'
+
+const cmpts: Record<string, unknown> = {
+  Pen,
+  Size,
+  Color,
+  Undo,
+  Redo,
+  MoreOptions
+}
+
+defineProps(['tools'])
+</script>
+
+<style scoped lang='scss'>
+.menu  {
+  display: flex;
+  height: 45px;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  background-color: #333;
+  border-bottom: 1px solid #ddd;
+}
+.tool-divider {
+  display: inline-block;
+  align-self: center;
+  width: 1px;
+  height: 20px;
+  background-color: #fff;
+  margin: 0 10px;
+}
+</style>
+<style>
+.menu .el-icon,
+.menu .iconfont{
+  margin: 0 5px;
+}
+
+</style>

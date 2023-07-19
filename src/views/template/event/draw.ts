@@ -1,5 +1,5 @@
-import { Canvas, Path } from "@/modules/canvas/"
-import { memo, setting } from ".."
+import { Canvas, Path } from "@/modules/canvas"
+import { memo, setting } from "../../template"
 
 let path: Path | null = null;
 let moved = false;

@@ -1,15 +1,33 @@
-import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
+import { createRouter, createWebHistory } from 'vue-router'
 
-const routes: Array<RouteRecordRaw> = [
+const routes = [
   {
     path: '/',
+    redirect: '/home',
+  },
+  {
+    path: '/home',
     name: 'Home',
-    component: () => import(/* webpackChunkName: "home" */ '../views/home/index.vue')
+    component: () => import('../views/home/index.vue')
+  },
+  {
+    path: '/canvas',
+    name: 'Canvas',
+    component: () => import('../views/canvas/index')
+  },
+  {
+    path: '/fill',
+    name: 'Fill',
+    component: () => import('../views/fill/index.vue')
+  },
+  {
+    path: '/fill/canvas/:icon',
+    name: 'FillCanvas',
+    component: () => import('../views/fill/index')
   }
 ]
 const router = createRouter({
-  // history: createWebHistory(process.env.BASE_URL),
-  history: createWebHistory('/canvas/dist'),
+  history: createWebHistory(),
   routes
 })
 
