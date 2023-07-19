@@ -1,0 +1,2 @@
+(window["webpackJsonp"]=window["webpackJsonp"]||[]).push([["chunk-2d230e14"],{edba:function(e,o,n){"use strict";n.r(o);var t=n("0f8a"),a=n("7a23");o["default"]=Object(a["defineComponent"])({setup(){return()=>Object(a["h"])(t["a"],{tools:["Pen","Size","Color","Undo","Redo","MoreOptions"]})}})}}]);
+//# sourceMappingURL=chunk-2d230e14.ffb70575.js.map
