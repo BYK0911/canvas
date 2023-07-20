@@ -46,6 +46,8 @@ onMounted(() => {
 
 onBeforeMount(() => {
   if (animateId) window.cancelAnimationFrame(animateId)
+  cvs.layers = []
+  memo.reset()
 })
 </script>
 
