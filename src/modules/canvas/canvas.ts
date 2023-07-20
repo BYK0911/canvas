@@ -38,7 +38,6 @@ export default class Canvas {
     this.activeCanvas.width = this.width
     this.activeCanvas.height = this.height
     this.activeCtx = this.activeCanvas.getContext('2d') as CanvasRenderingContext2D
-    document.body.appendChild(this.activeCanvas)
     initEvent(this)
   }
 

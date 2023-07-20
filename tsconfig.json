@@ -32,7 +32,7 @@
     "src/**/*.vue",
     "tests/**/*.ts",
     "tests/**/*.tsx"
-  ],
+, "src/assets/icon/iconfont.js"  ],
   "exclude": [
     "node_modules"
   ]

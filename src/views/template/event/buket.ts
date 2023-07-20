@@ -3,8 +3,6 @@ import { memo, setting } from "../../template"
 import magicWand from "@/modules/canvas/utils/magicWand"
 import Rasterized from '@/modules/canvas/layer/Rasterized'
 
-console.log(memo, setting)
-
 let x: number, y: number
 const offsetY = 45;
 
@@ -15,7 +13,7 @@ export default function (cvs: Canvas): void {
     y = Math.floor(ev.y - offsetY)
     
     const imageData = cvs.ctx.getImageData(0, 0, cvs.width, cvs.height)
-    const res = magicWand(imageData, x, y, 50)
+    const res = magicWand(imageData, x, y, 0)
     let x0 = res[0][0]
     let x1 = x0
     let y0 = res[0][1]

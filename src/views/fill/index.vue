@@ -4,7 +4,9 @@
       <div class="group-label"> {{ g.label }} </div>
       <div class="img-wrap">
         <span class="img-icon" v-for="ic in g.icons" :key="ic.icon_id" @click="to(ic)">
-          <i class="ICON" :class="'ic-' + ic.font_class"></i>
+          <svg class="icon" aria-hidden="true">
+            <use :xlink:href="'#ic-' + ic.font_class"></use>
+          </svg>
         </span>
       </div>
     </div>
@@ -26,8 +28,8 @@ interface Icon {
 const router = useRouter()
 const groups = [
   { name: 'animal', icons: [0, 40], label: '动物' },
-  { name: 'clothes', icons: [41, 58], label: '衣服' },
-  { name: 'fruit', icons: [59, 108], label: '水果' },
+  { name: 'clothes', icons: [41, 59], label: '衣服' },
+  { name: 'fruit', icons: [60, 108], label: '水果' },
   { name: 'vegetable', icons: [109, 129], label: '蔬菜' },
   { name: 'hulman', icons: [130, 198], label: '人物' },
   { name: 'elc', icons: [199, 211], label: '电器' },
@@ -39,7 +41,7 @@ const groups = [
   return { ...g, icons }
 })
 
-const to = (ic: Icon) => router.push({ name: 'FillCanvas', params: { icon: ic.unicode_decimal } })
+const to = (ic: Icon) => router.push({ name: 'FillCanvas', params: { icon: ic.font_class } })
 </script>
 
 <style scoped lang="scss">
@@ -58,16 +60,21 @@ const to = (ic: Icon) => router.push({ name: 'FillCanvas', params: { icon: ic.un
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
+  font-size: 30px;
+}
+.icon {
+  width: 1em;
+  height: 1em;
+  vertical-align: -0.15em;
+  fill: currentColor;
+  overflow: hidden;
 }
 .img-icon {
   display: inline-block;
   color: #999;
-  width: 60px;
-  height: 60px;
-  line-height: 60px;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
   text-align: center;
-  .ICON {
-    font-size: 30px;
-  }
 }
 </style>
